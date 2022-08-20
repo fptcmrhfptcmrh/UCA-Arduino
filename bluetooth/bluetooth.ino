@@ -1,0 +1,15 @@
+#include<SoftwareSerial.h>
+SoftwareSerial bluetooth(2,3);
+void setup() {
+  Serial.begin(9600);
+  bluetooth.begin(38400);
+}
+void loop() {
+  if (bluetooth.available()){
+    Serial.write(bluetooth.read());
+  }
+  if(Serial.available()){
+    bluetooth.write(Serial.read());
+  }
+}
+//98D3,21,F7CFF0
